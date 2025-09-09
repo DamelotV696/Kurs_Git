@@ -9,7 +9,10 @@ class PostController extends Controller
 {
     public function index()
     {
-        $post = Post::find(1);
-        dd($post);
+        $posts = Post::where("is_publish", 1)->get();
+        foreach ($posts as $post) {
+            dump($post->title);
+        }
+        dd('end');
     }
 }
