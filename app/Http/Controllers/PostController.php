@@ -54,4 +54,50 @@ class PostController extends Controller
         $post->restore();
         dd('deleted');
     }
+
+    public function firstOrCreate()
+    {
+        // $post = Post::find(1);
+        $anotherPost = [
+            'title' => 'SOME title from laravel',
+            'content' => 'SOME content from laravel',
+            'image' => 'SOMEImgageFromLaravel.jpg',
+            'likes' => 200,
+            'is_publish' => 1,
+        ];
+        $post = Post::firstOrCreate([
+            'title' => 'SOME title from laravel'
+
+        ], [
+            'title' => 'SOME title from laravel',
+            'content' => 'SOME content from laravel',
+            'image' => 'SOMEImgageFromLaravel.jpg',
+            'likes' => 200,
+            'is_publish' => 1,
+        ]);
+        dd('FOC');
+    }
+
+    public function UpdateOrCreate()
+    {
+        // $post = Post::find(1);
+        $anotherPost = [
+            'title' => 'UpdateOrCreate title from laravel',
+            'content' => 'UpdateOrCreate content from laravel',
+            'image' => 'UpdateOrCreateImgageFromLaravel.jpg',
+            'likes' => 500,
+            'is_publish' => 0,
+        ];
+        $post = Post::updateOrCreate([
+            'title' => 'SOME title not from laravel'
+
+        ], [
+            'title' => 'SOME title not from laravel',
+            'content' => 'UpdateOrCreate its not content from laravel',
+            'image' => 'its not Laravel.jpg',
+            'likes' => 500,
+            'is_publish' => 0,
+        ]);
+        dd('UOC');
+    }
 }
