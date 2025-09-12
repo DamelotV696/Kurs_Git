@@ -17,3 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/post', 'PostController@index');
+
+Route::get('/posts/create', 'PostController@create');
