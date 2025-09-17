@@ -1,5 +1,5 @@
 @extends("layouts.main")
 @section('content')
 
-    <div>posts</div>
+    <div>main</div>
 @endsection
