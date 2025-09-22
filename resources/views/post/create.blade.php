@@ -5,21 +5,30 @@
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title" placeholder="Title" name="title">
+                <input type="text" class="form-control" id="title" placeholder="Title" name="title" value="{{old('title')}}">
+                @error('title')
+                    <p class="text-danger">{{$message}}</p>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="content" class="form-label">Content</label>
-                <textarea class="form-control" id="content" placeholder="Content" name="content"></textarea>
+                <textarea class="form-control" id="content" placeholder="Content" name="content">{{old('content')}}</textarea>
+                @error('content')
+                    <p class="text-danger">{{$message}}</p>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">Image</label>
-                <input type="text" class="form-control" id="image" placeholder="image" name="image">
+                <input type="text" class="form-control" id="image" placeholder="image" name="image" value="{{old('image')}}">
+                @error('image')
+                    <p class="text-danger">{{$message}}</p>
+                @enderror
             </div>
             <div class="md-3">
                 <label for="category" class="form-label">Category</label>
                 <select id="category" class="form-control" name="category_id">
                     @foreach ($categories as $category)
-                        <option value="{{$category->id}}">{{$category->title}}</option>
+                        <option {{old('category_id') == $category->id ? ' selected' : ''}} value="{{$category->id}}">{{$category->title}}</option>
                     @endforeach
                 </select>
             </div>
