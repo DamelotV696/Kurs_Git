@@ -8,7 +8,6 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\PostTag;
 use App\Models\Tag;
-use App\Services\Post\Service\BaseController;
 use Illuminate\Http\Request;
 
 class UpdateController extends BaseController
