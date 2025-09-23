@@ -13,7 +13,7 @@ class IndexController extends BaseController
 {
     public function __invoke()
     {
-        $posts = Post::all();
+        $posts = Post::paginate(20);
         return view('post.index', compact('posts'));
     }
 }
