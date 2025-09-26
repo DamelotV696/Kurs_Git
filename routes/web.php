@@ -28,6 +28,11 @@ Route::group(['namespace' => 'Post'], function () {
 });
 
 
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+    Route::group(['namespace' => 'Post'], function () {
+        Route::get('/post', 'indexController')->name('admin.post.index');
+    });
+});
 
 
 Route::get('/posts/update', 'PostController@update');
