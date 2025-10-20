@@ -13,6 +13,7 @@ class Service
 
         $post = Post::create($data);
         $post->tags()->attach($tags);
+        return $post;
     }
     public function update($post, $data)
     {
